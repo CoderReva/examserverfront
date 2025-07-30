@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-signup',
-  imports: [],
+  imports: [MatInputModule, MatFormFieldModule, MatIconModule],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
 
