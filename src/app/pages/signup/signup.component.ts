@@ -8,8 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { UserService } from '../../components/services/user.service';
 
+
 @Component({
   selector: 'app-signup',
+  standalone: true,
   imports: [MatInputModule, MatFormFieldModule, MatIconModule, MatButtonModule, FormsModule, JsonPipe],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
