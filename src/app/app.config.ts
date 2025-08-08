@@ -5,7 +5,7 @@ import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 
 export const appConfig: ApplicationConfig = {
@@ -13,6 +13,6 @@ export const appConfig: ApplicationConfig = {
      provideRouter(routes),
       provideClientHydration(withEventReplay()),
       importProvidersFrom(MatButtonModule, FormsModule),
-      
+      provideHttpClient(withInterceptorsFromDi())
     ]
 };

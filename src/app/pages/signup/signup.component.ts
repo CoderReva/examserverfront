@@ -6,6 +6,7 @@ import { OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
+import { UserService } from '../../components/services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ import { JsonPipe } from '@angular/common';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  constructor() { }
+  constructor(private userService: UserService) { }
 
     public user= { 
       userName: '',
@@ -36,6 +37,18 @@ export class SignupComponent implements OnInit {
     alert('User name must be required !!'); 
     return;
   }
-   alert('Form submitted!');
+
+  // Add user Userservice
+   this.userService.addUser(this.user).subscribe({
+      next: (data: any) => {
+        //success
+        console.log(data);
+        alert('Success !!');
+      },
+      error: (error: any) => {
+        console.log(error);
+        alert('Something went wrong !!');
+      }
+    });
   }
 }
