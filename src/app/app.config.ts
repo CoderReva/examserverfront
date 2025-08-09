@@ -6,13 +6,18 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgModel } from '@angular/forms';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }),
      provideRouter(routes),
       provideClientHydration(withEventReplay()),
-      importProvidersFrom(MatButtonModule, FormsModule),
-      provideHttpClient(withInterceptorsFromDi())
+      provideHttpClient(withInterceptorsFromDi()),
+      importProvidersFrom(MatSnackBarModule),
+      importProvidersFrom(MatIconModule, MatInputModule, MatFormFieldModule, MatButtonModule, FormsModule, NgModel),
     ]
 };

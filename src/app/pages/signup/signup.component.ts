@@ -7,7 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { UserService } from '../../components/services/user.service';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,7 @@ import { UserService } from '../../components/services/user.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private snack: MatSnackBar) { }
 
     public user= { 
       userName: '',
@@ -36,20 +37,29 @@ export class SignupComponent implements OnInit {
     // Handle form submission logic here
     console.log(this.user);
     if (this.user.userName=='' || this.user.userName==null) {
-    alert('User name must be required !!'); 
-    return;
-  }
+    // alert('User name must be required !!'); 
+    this.snack.open('User name is required !!', '', {
+        duration: 3000,
+       panelClass: ['text-center']
+      });
+      return;
+    }
 
   // Add user Userservice
    this.userService.addUser(this.user).subscribe({
       next: (data: any) => {
-        //success
+        //if success
         console.log(data);
-        alert('Success !!');
+        // alert('Success !!');
+        Swal.fire('Success !!', `registered User name: ${data.userName}`, 'success');
       },
+      //if error
       error: (error: any) => {
         console.log(error);
-        alert('Something went wrong !!');
+        // alert('Something went wrong !!');
+        this.snack.open('Something went wrong !!', '', {
+          duration: 3000,
+        });
       }
     });
   }
