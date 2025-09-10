@@ -1,1 +1,34 @@
-<p>login works!</p>
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                   <img src="assets/Online-examinationLogo.jpg" alt="logo" width="340" height="148" />
+                </div>
+                <h2 class="text-center">Login here !!</h2>
+                <mat-card>
+                <form action="">
+
+                    <!--Username field -->
+                    <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>User name</mat-label>
+                    <input required matInput placeholder="Enter here">
+                     <mat-hint>Valid username!!</mat-hint>
+                    </mat-form-field>
+
+                    <!--Password field -->
+                    <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input required matInput placeholder="Enter here" type="password">
+                    </mat-form-field>
+
+                    <div class="container text-center">
+                        <button class="mb-20" mat-raised-button color="primary" type="submit">Login</button>
+                        <button class="mb-20 ml-10" mat-raised-button color="accent" type="reset">Reset</button>
+                    </div>
+                </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

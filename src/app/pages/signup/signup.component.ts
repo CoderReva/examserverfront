@@ -8,12 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { UserService } from '../../components/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatCardModule} from '@angular/material/card';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [MatInputModule, MatFormFieldModule, MatIconModule, MatButtonModule, FormsModule, JsonPipe],
+  imports: [MatInputModule, MatFormFieldModule, MatIconModule, MatButtonModule, FormsModule, JsonPipe, MatCardModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
